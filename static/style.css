@@ -1,168 +1,146 @@
-/* Reset de base pour les marges et paddings */
+/* Supprime les marges et gère le box-sizing */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corps de la page */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Conteneur principal */
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Entête */
-h1 {
-    text-align: center;
-    color: #4A90E2;
-    margin-bottom: 20px;
-}
-
-/* Formulaire d'ajout de produit */
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
-
-form input, form button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-form input[type="text"], form input[type="url"], form input[type="number"] {
-    font-size: 16px;
-}
-
-form button {
-    background-color: #4A90E2;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #357ABD;
-}
-
-/* Liste des produits (affichage en mode liste) */
-ul {
-    list-style: none;
-    padding: 0;
+/* HEADER : Image de fond fixée en haut, gauche et droite */
+.full-header {
+    background-image: url(../static/bleu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+    height: 200px; /* Ajuste selon besoin */
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    position: relative;
 }
 
-li {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+/* TITRE */
+h1 {
+    font-size: 50px;
+    color: white;
+    margin: 0;
+}
+
+/* Décale le reste du contenu sous le header */
+main {
+    margin-top: 0; /* Supprime le décalage inutile */
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 350px;
-    margin: 0 auto;
+}
+
+/* FORMULAIRE */
+.form {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    width: 1300PX;
     text-align: center;
-    transition: transform 0.2s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-li:hover {
-    transform: translateY(-10px);
+.form input {
+    transform: scale(1.1);
+    margin: 10px 0;
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-/* Image produit */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+.form button {
+    background-color: #0d5fbd;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form button:hover {
+    background-color: #094b99;
+}
+
+/* LISTE DES TÂCHES */
+.tache {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #eee;
+    border-left: 8px solid #0d6ebd;
+    width: 1300PX;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 15px;
 }
 
-/* Détails du produit */
-.product-details {
-    margin-top: 15px;
+/* CHECKBOX */
+input[type="checkbox"] {
+    transform: scale(1.4);
+    margin-right: 10px;
+}
+
+/* STYLE DES DÉTAILS DE LA TÂCHE */
+.task-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+/* NUMÉRO DE LA TÂCHE */
+.num_tache {
+    color: #0d6ebd;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* DESCRIPTION DE LA TÂCHE */
+.desc_tache {
+    color: #333;
     font-size: 16px;
+    text-align: center;
+}
+
+/* DATE DE LA TÂCHE */
+.dt_tache {
+    font-size: 14px;
     color: #777;
 }
 
-.product-details span {
-    font-weight: bold;
-    color: #4A90E2;
-}
-
-/* Lien vers la suppression */
-.supp {
-    color: #ea3521;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
-.modif {
-    color: #47a4f0;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
-.lien {
-    color: #3c53e7;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
-.supp:hover {
-    color: #b32727;
-}
-
-.modif:hover {
-    color: #215177;
-}
-
-.lien:hover {
-    color: #1f2a75;
-}
-
-/* Bouton de suppression */
-button.delete-btn {
-    background-color: #ff1900;
+/* BOUTON SUPPRIMER */
+.butt {
+    background-color: #bd0d0d;
     color: white;
-    padding: 8px 12px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    text-align: center;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
 }
 
-button.delete-btn:hover {
-    background-color: #ff1900;
-}
-
-/* Responsivité pour écrans plus petits */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-    }
-
-    li {
-        width: 90%;
-    }
+.butt:hover {
+    background-color: #810b32;
 }
