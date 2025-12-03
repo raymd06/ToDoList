@@ -1,0 +1,168 @@
+/* Reset de base pour les marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Conteneur principal */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Entête */
+h1 {
+    text-align: center;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+/* Formulaire d'ajout de produit */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+form input[type="text"], form input[type="url"], form input[type="number"] {
+    font-size: 16px;
+}
+
+form button {
+    background-color: #4A90E2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #357ABD;
+}
+
+/* Liste des produits (affichage en mode liste) */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+li {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: translateY(-10px);
+}
+
+/* Image produit */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Détails du produit */
+.product-details {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #777;
+}
+
+.product-details span {
+    font-weight: bold;
+    color: #4A90E2;
+}
+
+/* Lien vers la suppression */
+.supp {
+    color: #ea3521;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.modif {
+    color: #47a4f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.lien {
+    color: #3c53e7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.supp:hover {
+    color: #b32727;
+}
+
+.modif:hover {
+    color: #215177;
+}
+
+.lien:hover {
+    color: #1f2a75;
+}
+
+/* Bouton de suppression */
+button.delete-btn {
+    background-color: #ff1900;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button.delete-btn:hover {
+    background-color: #ff1900;
+}
+
+/* Responsivité pour écrans plus petits */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    li {
+        width: 90%;
+    }
+}
