@@ -1,0 +1,60 @@
+<!-- Déclaration du document HTML -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Encodage des caractères en UTF-8 pour la compatibilité avec les accents -->
+    <meta charset="UTF-8">
+    <!-- Configuration pour un affichage responsive sur les appareils mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Lien vers la feuille de style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Auteur de la page -->
+    <meta name="author" content="RAMDANE Rayane">
+    <!-- Préchargement des polices Google Fonts pour un affichage plus rapide -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Titre de la page affiché dans l'onglet du navigateur -->
+    <title>ToDo List</title>
+</head>
+
+<body>
+    <!-- En-tête de la page -->
+    <header class="full-header">
+        <h1>ToDo List</h1>
+    </header>
+
+    <main>
+        <!-- Formulaire d'ajout de tâche -->
+        <form action="/add" method="post" class="form">
+            <input type="text" name="task" placeholder="Ajouter une tâche..." required>
+            <input type="text" name="desc" placeholder="Description..." required>   
+            <button type="submit">Ajouter</button>
+        </form>
+        
+        <!-- Boucle qui affiche les tâches stockées dans 'tasks' -->
+        {% for task in tasks %}
+            <article class="tache"> 
+                <li>
+                    <!-- Formulaire permettant de cocher/décocher une tâche -->
+                    <form action="/toggle/{{ task[0] }}" method="post" style="display:inline;">
+                        <input type="checkbox" name="completed" onchange="this.form.submit()" {% if task[4] %}checked{% endif %}>
+                    </form>
+                    
+                    <!-- Détails de la tâche -->
+                    <div class="task-details">
+                        <span class="num_tache">Tâche #{{ loop.index }}. {{ task[1] }}</span>
+                        <span class="desc_tache">{{ task[2] }}</span>
+                        <span class="dt_tache">{{ task[3] }}</span>
+                    </div>
+                    
+                    <!-- Lien pour supprimer la tâche -->
+                    <a href="/remove/{{ task[0] }}" class="butt">Supprimer</a>
+                </li>
+            </article>
+        {% endfor %}
+    </main>
+</body>
+</html>
